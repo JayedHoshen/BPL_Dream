@@ -1,8 +1,15 @@
-import React from "react";
+import React, { useState } from "react";
 import { FaUser } from "react-icons/fa";
 import { IoFlagSharp } from "react-icons/io5";
 
-const Player = ({ player }) => {
+const Player = ({
+  player,
+  coin,
+  setCoin,
+  selectedPlayers,
+  setSelectedPlayers,
+}) => {
+  const [isSelected, setIsSelected] = useState(false);
   const {
     playerName,
     playerCountry,
@@ -13,6 +20,22 @@ const Player = ({ player }) => {
     playerImage,
     price,
   } = player;
+
+  const handleChoosePlayer = () => {
+    const newCoin = coin - price;
+    if (newCoin >= 0) {
+      setCoin(newCoin);
+    } else {
+      alert("Not enough coin to purchase this player");
+      return;
+    }
+
+    alert(`${playerName} is selected`);
+    setIsSelected(true);
+
+    setSelectedPlayers([...selectedPlayers, player]);
+  };
+
   return (
     <div className="card bg-base-200 shadow-md">
       <figure>
@@ -40,7 +63,13 @@ const Player = ({ player }) => {
         </div>
         <div className="flex justify-between items-center">
           <p>Price: ${price}</p>
-          <button className="btn">Choose Player</button>
+          <button
+            className="btn"
+            onClick={handleChoosePlayer}
+            disabled={isSelected}
+          >
+            {isSelected ? "Selected" : "Choose Player"}
+          </button>
         </div>
       </div>
     </div>
