@@ -10,7 +10,7 @@ const Players = ({ playersPromise, coin, setCoin }) => {
 
   return (
     <div className="container mx-auto my-15">
-      <div className="flex justify-between items-center my-6">
+      <div className="flex gap-2 flex-wrap justify-center md:justify-between items-center my-6">
         {selectedType === "available" ? (
           <h2 className="text-2xl font-bold">Available Players</h2>
         ) : (

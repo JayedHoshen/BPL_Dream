@@ -20,7 +20,7 @@ const SelectedPlayers = ({
   return (
     <div className="space-y-4">
       {selectedPlayers.length < 1 ? (
-        <div className="flex flex-col gap-4 items-center my-10">
+        <div className="bg-gray-50 shadow-sm p-8 rounded-lg flex flex-col gap-4 items-center my-10">
           <h2 className="font-semibold text-2xl">No players selected yet</h2>
           <p>Go to Available tab to select players</p>
         </div>
