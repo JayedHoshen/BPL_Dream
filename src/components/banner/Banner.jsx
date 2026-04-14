@@ -9,7 +9,7 @@ const Banner = () => {
         style={{
           backgroundImage: ` url(${bannerBg})`,
         }}
-        className={`bg-cover bg-center p-16 flex flex-col justify-center items-center space-y-4 rounded-2xl`}
+        className={`bg-cover bg-center px-4 py-16 flex flex-col justify-center items-center space-y-4 rounded-2xl`}
       >
         <img className="max-w-50" src={bannerImg} alt="banner-images" />
         <h1 className="font-bold text-xl lg:text-4xl text-white">
